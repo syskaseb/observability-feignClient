@@ -1,6 +1,6 @@
 package com.example.feign;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.openfeign.EnableFeignClients;
@@ -10,10 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @SpringBootApplication
 @EnableFeignClients
+@RequiredArgsConstructor
 @Controller
 public class FeignClientApplication {
-    @Autowired
-    private GreetingClient greetingClient;
+
+    private final GreetingClient greetingClient;
 
     public static void main(String[] args) {
         SpringApplication.run(FeignClientApplication.class, args);
